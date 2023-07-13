@@ -1,0 +1,59 @@
+<main>
+
+  <form class="news_form">
+
+    <h2>Nueva noticia</h2>
+
+    <div class="input">
+      <label for="news_title">Titulo:</label>
+      <input type="text" name="title" id="news_title" [(ngModel)]="newTitle" #title="ngModel">
+    </div>
+
+    <div class="input">
+      <label for="news_image">Imagen:</label>
+      <input type="text" name="image" id="news_image" [(ngModel)]="newImage" #image="ngModel">
+    </div>
+
+    <div class="input">
+      <label for="news_date">Fecha:</label>
+      <input type="date" name="date" id="news_date" [(ngModel)]="newDate" #date="ngModel">
+    </div>
+
+    <div class="input">
+      <label for="news_content">Contenido:</label>
+      <textarea name="content" id="news_content" cols="10" rows="10" [(ngModel)]="newContent"
+        #content="ngModel"></textarea>
+    </div>
+
+    <div class="input">
+      <input type="button" value="Guardar" (click)="saveNews()">
+    </div>
+
+  </form>
+
+  <section class="all_news">
+
+    <section class="news" *ngFor="let notice of allNews">
+
+      <div class="header">
+
+        <div class="title">
+          <h2 class="title">{{ notice.title }}</h2>
+          <span class="date">{{ notice.date }}</span>
+        </div>
+
+        <div class="image">
+          <img src="{{ notice.image }}" alt="meme">
+        </div>
+
+      </div>
+
+      <div class="content">
+        {{ notice.content }}
+      </div>
+
+    </section>
+
+  </section>
+
+</main>
